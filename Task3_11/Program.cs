@@ -17,7 +17,7 @@
             int conf2 = (p + s);
             int conf3 = (q + r);
             int conf4 = (q + s);
-            if (((a >= conf1 || a >= conf2 || a >= conf3 || a >= conf4)) || ((b >= conf1 || b >= conf2 || b >= conf3 || b >= conf4)))
+            if (((a >= conf1 && a >= conf2 || a >= conf3 && a >= conf4)) || ((b >= conf1 && b >= conf2 || b >= conf3 && b >= conf4)))
             {
                 Console.WriteLine("можно разместить");
             }
