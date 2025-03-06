@@ -9,13 +9,13 @@
             double st = a;
             double st1 = a;
             if (a > 0 && b < 0)
-            {
+        {
                 for (int i = 1; i <= -b; i++)
                 {
                     st = 1.0 / (st1);
                     st1 = st1 * a;
-                }
-                Console.WriteLine(" {0} в степени {1} равено {2}", a, b, st);
+            }
+            Console.WriteLine(" {0} в степени {1} равено {2}", a, b, st);
             }
             else
                 Console.WriteLine("ошибка");
