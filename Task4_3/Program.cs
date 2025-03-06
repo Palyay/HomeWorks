@@ -5,7 +5,6 @@
         static void Main(string[] args)
         {
             //a>0, b>0. Найти a^b 
-            //не выходит на ошибке остановиться
             int a = Convert.ToInt32(Console.ReadLine());
             int b = Convert.ToInt32(Console.ReadLine());
             int st = a;
@@ -18,7 +17,7 @@
                 Console.WriteLine(" {0} в степени {1} равено {2}", a, b, st);
             }
             else
-            Console.WriteLine("ошибка");
+                Console.WriteLine("ошибка");
             Console.ReadKey();
         }
     }
