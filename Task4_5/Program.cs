@@ -13,8 +13,7 @@
                 Console.WriteLine("введите число из диапазона [20; 60]");
                 Console.ReadKey();
             }
-            
-            Console.ReadKey();
+                       Console.ReadKey();
         }
     }
 }
