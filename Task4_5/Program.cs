@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            //число из диапазона [20; 60]
             int a = Convert.ToInt32(Console.ReadLine());
 
             while
@@ -12,8 +13,7 @@
                 Console.WriteLine("введите число из диапазона [20; 60]");
                 Console.ReadKey();
             }
-            
-            Console.ReadKey();
+                       Console.ReadKey();
         }
     }
 }
