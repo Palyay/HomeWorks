@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            //Вводится n. Определить, является ли оно степенью 2-ки?
+            //Вводится n. Определить, является ли оно степенью 2-ки ?
             int n = Convert.ToInt32(Console.ReadLine());
             double x = n;
             int i = 1;
