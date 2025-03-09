@@ -6,14 +6,12 @@
         {
             //Вводится n. Определить, является ли оно степенью 2-ки?
             int n = Convert.ToInt32(Console.ReadLine());
-            int x = n;
+            double x = n;
             int i = 1;
             while (x > 2)
             {
-                x = x / 2;
-                i = ++i;
-                Console.WriteLine(x);
-                
+                x = x / 2.0;
+                i = ++i;                              
             }
             if (x == 2)
             {
