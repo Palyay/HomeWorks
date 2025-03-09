@@ -7,15 +7,20 @@
             //Вводится n. Определить, является ли оно степенью 2-ки?
             int n = Convert.ToInt32(Console.ReadLine());
             int x = n;
-            int i = 2;
-
-            while (x == 2) ;
+            int i = 1;
+            while (x > 2)
             {
                 x = x / 2;
                 i = ++i;
+                Console.WriteLine(x);
+                
+            }
+            if (x == 2)
+            {
                 Console.WriteLine(" 2^{0}={1}", i, n);
             }
-
+            else
+                Console.WriteLine("не является степенью числа 2");
             Console.ReadKey();
         }
     }
