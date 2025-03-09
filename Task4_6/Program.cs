@@ -17,8 +17,7 @@
             {
                 Console.WriteLine(" 2^{0}={1}", i, n);
             }
-            else
-                Console.WriteLine("не является степенью числа 2");
+
             Console.ReadKey();
         }
     }
