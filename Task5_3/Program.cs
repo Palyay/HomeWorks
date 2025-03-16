@@ -19,28 +19,35 @@ namespace Task5_3
                 array[i] = rnd.Next(0, 51);
                 Console.Write("{0} ", array[i]);
             }
+            Console.WriteLine();
             foreach (int a in array)
             {
                 if (a > max)
                 {
                     max = a;
+                    indMax = indMax + 1;                   
                 }
+                else
+                {
+                    indMax = indMax + 1;
+                }
+                Console.WriteLine(" макс {0}- индекс {1}", max, indMax);
+            }
+            
+            foreach (int a in array)
+            {
                 if (a < min)
                 {
                     min = a;
+                    indMin = indMin + 1;                    
                 }
-                if (array[a] == max)
+                else
                 {
-                    indMax = array[a];
+                    indMin = indMin + 1;
                 }
-                if (array[a] == min)
-                {
-                    indMin = array[min];
-                }
-                Console.WriteLine(" мин {0} - индекс {1}, макс {2}- индекс {3}", min, indMin, max, indMax);
-                Console.ReadKey();
+                Console.WriteLine(" мин {0} - индекс {1},", min, indMin);
             }
-
+                       Console.ReadKey();
         }
     }
 }
