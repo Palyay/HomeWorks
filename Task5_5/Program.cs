@@ -27,7 +27,19 @@
                     }
                 }
             }
-            for (int i = 0; i < m; i++)
+            for (int i = m; i < n - 1; i++)
+            {
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (array[i] < array[j])
+                    {
+                        int t = array[i];
+                        array[i] = array[j];
+                        array[j] = t;
+                    }
+                }
+            }
+            for (int i = 0; i < n; i++)
             {
                 Console.Write("{0} ", array[i]);
             }
