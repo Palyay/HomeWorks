@@ -15,10 +15,10 @@
             {
                 for (int j = 0; j < n; j++)
                 {
-                    array[i, j] = i == j ? 1 : 0;
+                    array[i, j] = i % 2 == j % 2 ? 1 : 0;
                     Console.Write("{0} ", array[i, j]);
                 }
-                              Console.WriteLine();
+                Console.WriteLine();
             }
             Console.ReadKey();
         }
