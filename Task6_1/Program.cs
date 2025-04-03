@@ -18,7 +18,7 @@ namespace Task6_1
                 maxWord = word.Length;
                  Console.WriteLine(word);
             }
-            Console.WriteLine(maxWord);
+            Console.WriteLine(words);
         }
     }
 }
