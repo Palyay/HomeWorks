@@ -6,16 +6,17 @@ namespace Task6_5
     {
         static void Main(string[] args)
         {
+            //"{0:#(###)###-##-##}"
             string[] test =
             {
-                "abc@gmail.com", "abc.gmail.com", "abc@gmail_com", "my email is abc@gmail.com", "test@example..com"
+                "+7(987)654-32-10", "abc.gmail.com", "+70006543210", "+7(987)654-321-054", "+7(000)000-00-00" ,"8(958)746-58-69", "+7(275)358-85-74"
             };
-            Regex regex = new Regex(@"^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$");
+            Regex regex = new Regex(@"^\+7+\(+[0-9]{3}\)+[0-9]{3}\-+[0-9]{2}\-[0-9]{2}$");
             foreach (string str in test)
                 if (regex.IsMatch(str))
                     Console.WriteLine("\"{0}\" - ok", str);
                 else
-                    Console.WriteLine("\"{0}\" -  не ok", str);
+                    Console.WriteLine("\"{0}\" -  no", str);
             Console.ReadKey();
         }
     }
