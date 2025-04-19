@@ -6,7 +6,17 @@
         {
             int a = Convert.ToInt32(Console.ReadLine());
             int b = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(a/b);
+            try
+            {
+                Console.WriteLine("Начало оперции!");
+                int d = a / b;
+                Console.WriteLine(d);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
             Console.ReadKey();
         }
     }
