@@ -19,43 +19,38 @@ namespace Task8_1
                     Console.WriteLine("Ошибка оперции - неверный код оперции");
                     Console.ReadKey();
                 }
-                int s, r, p, d;
-                int itog = CalculatePro(a, b, c);
+                string itog = "Ошибка";
+                Console.WriteLine("начало оперции");
+                if (c == 1)
+                {
+                    itog = (a + b).ToString();
+                }
+                if (c == 2)
+                {
+                    itog = (a - b).ToString();
+                }
+                if (c == 3)
+                {
+                    itog = (a * b).ToString();
+                }
+                if (c == 4)
+                {
+                    try
+                    {
+                        itog = (a / b).ToString(); ;
+                    }
+                    catch (DivideByZeroException)
+                    {
+                        Console.WriteLine("Ошибка оперции - деление на ноль");
+                        Console.ReadKey();
+                    }
+                }
                 Console.WriteLine($"итог: {itog}");
             }
             catch (FormatException)
             {
                 Console.WriteLine("Ошибка оперции - введено не числовое значение");
             }
-            Console.WriteLine("начало оперции");
-        }
-
-        static int CalculatePro(int a, int b, int c)
-        {
-            if (c == 1)
-            {
-                return a + b;
-            }
-            if (c == 2)
-            {
-                return a - b;
-            }
-            if (c == 3)
-            {
-                return a * b;
-            }
-            try
-            {
-                if (c == 4)
-                {
-                    return a / b;
-                }
-            }
-            catch (DivideByZeroException)
-            {
-                Console.WriteLine("Ошибка оперции - деление на ноль");
-            }
         }
     }
 }
-
