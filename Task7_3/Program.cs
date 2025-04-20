@@ -18,7 +18,7 @@ namespace Task7_3
             PrintNumbers(numbers, reverse);
             Console.ReadKey();
         }
-        static void PrintNumbers(int[] numbers, bool reverse)
+        static void PrintNumbers(int[] numbers, bool reverse = false)
         {
             if (reverse == false)
             {
