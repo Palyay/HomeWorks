@@ -4,31 +4,32 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите возраст ");
-            short a = Convert.ToByte(Console.ReadLine());
-            ushort b = Convert.ToUInt16(Console.ReadLine());
-            ValidateAge(a); 
-            ValidateAge(b);                       
-        }
-        static void ValidateAge(short a)
-        {
             try
             {
+                Console.WriteLine("Введите возраст ");
+                short a = Convert.ToInt16(Console.ReadLine());
+                ValidateAge(a);
+                Console.WriteLine($"{a} - Возраст введен корректно");
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                Console.WriteLine("Ошибка: Слишком большой возраст");
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine("Ошибка: Возраст не может быть отрицательным");
+            }
+            static void ValidateAge(short a)
+            {
+                if (a > 150)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
                 if (a < 0)
                 {
-                    Console.WriteLine(a);
+                    throw new ArgumentException();
                 }
             }
-
-            //< 0 - выбросить ArgumentException("Возраст не может быть отрицательным"),
-        }
-        static void ValidateAge(ushort a)
-        {
-            if (a >150)
-            {
-                Console.WriteLine(a);
-            }
-            //> 150 - выбросить ArgumentOutOfRangeException("Слишком большой возраст").
         }
     }
 }
