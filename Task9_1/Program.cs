@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             //  Создайте класс Book, который содержит:
             //  Поля:
@@ -15,38 +15,29 @@
             //   Инициализирует все поля и свойства
             //   Метод:
             //   GetInfo() – возвращает строку с информацией о книге(например: "Война и мир, Л. Толстой, 1869, 1225 стр.")
-
-            Cat cat = new Cat();
-            Cat cat1 = new Cat();
-            Cat cat2 = new Cat();
-
-
-
-
-
+            Book cat = new Book("Война и мир", "Л. Толстой", 1869, 1225);
+            cat.GetInfo();
+            Console.ReadKey();
         }
     }
-    class Cat
+    class Book
     {
-        string name;
-        string color;
-        int age;
+        string title;
+        string author;
+        public int Year { get; set; }
+        public int Pages { get; set; }
 
-        //public Cat(string n, string c, int a)
-        //{
-        //    name = n;
-        //    color = c;
-        //    age = a;
-        //}Cat(string n)
-        //{
-        //    name = n;
-        //    color = "Мульти";
-        //    age = 1;
-        //}
-
-        void Sey()
+        public Book(string title, string author, int year, int pages)
         {
-            Console.WriteLine("Мяу");
+            this.title = title;
+            this.author = author;
+            Year = year;
+            Pages = pages;
+        }
+
+        public void GetInfo()
+        {
+            Console.WriteLine($"{title}, {author}, {Year}, {Pages} стр.,");
         }
     }
 }
