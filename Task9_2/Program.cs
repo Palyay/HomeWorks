@@ -27,7 +27,7 @@ namespace Task9_2
     {
         decimal _balance = 1000.25M;
         private static int _totalAccounts = 0;
-        public int[] AccountNumber { get; }
+        public int[] AccountNumber { get; } = new int[4];
         public static decimal Balance { get; private set; }
         public BankAccount()
         {
@@ -43,14 +43,14 @@ namespace Task9_2
         }
         public void Deposit()
         {
-            Console.WriteLine($"Счет: {AccountNumber}, Сумма для пополнения балонса: ");
+            Console.WriteLine($"Сумма для пополнения баланса: ");
             decimal plus = Convert.ToDecimal(Console.ReadLine());
             Balance = _balance + plus;
             _balance = Balance;
         }
         public void Withdraw()
         {
-            Console.WriteLine($"Счет: {AccountNumber}, Сумма для снятия: ");
+            Console.WriteLine($"Сумма для снятия: ");
             decimal minus = Convert.ToDecimal(Console.ReadLine());
             try
             {
