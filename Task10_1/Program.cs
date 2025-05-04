@@ -5,7 +5,6 @@
         static void Main(string[] args)
         {
             Building triangle = new Building();
-
             Console.ReadKey();
         }
     }
@@ -13,18 +12,17 @@
     {
         string _address;
         double _area;
-        int yearBuilt;
+        int _yearBuilt;
         public double BuildingAge { get; set; }
 
-        public virtual double CalculateTax()
+        public virtual void CalculateTax()
         {
-            double p = (A + B + C) / 2;
-            return Math.Sqrt(p * (p - A) * (p - B) * (p - C));
+            double p = _area * 1000;
+            Console.WriteLine($"налог: {p}");
         }
-        public virtual double DisplayInfo()
+        public virtual void DisplayInfo()
         {
-            double p = (A + B + C) / 2;
-            return Math.Sqrt(p * (p - A) * (p - B) * (p - C));
+            Console.WriteLine($"адрес здания {_address}, площадь в квадратных метрах {_area} , год постройки {_yearBuilt} "); 
         }
     }
     class MultiBuilding() : Building
@@ -32,9 +30,10 @@
         MultiBuilding()
         : base()
         {
-
             int _floors;
             bool _hasElevator;
+            public double AreaPerFloor { get;}
+
         }
     }
 }
