@@ -7,14 +7,24 @@ namespace Task10_1
     {
         static void Main(string[] args)
         {
-            Building triangle = new Building("Сливовая", 190.15, 1857);
-            MultiBuilding triangle1 = new MultiBuilding("Каштановая", 2851.52, 2003, 9, true);
-            Building triangle2 = triangle;
-            MultiBuilding triangle3 = (MultiBuilding)triangle;
-            triangle2.CalculateTax();
-            triangle2.DisplayInfo();
-            triangle3.CalculateTax();
-            triangle3.DisplayInfo();
+            Building dom = new Building("Сливовая", 190.15, 1957);
+            MultiBuilding dom1 = new MultiBuilding("Каштановая", 2851.52, 2003, 9, true);//Создание объектов обоих типов
+
+            Building domUpcast = dom1;
+            Console.WriteLine("\nПосле upcasting:");
+            Console.WriteLine($"уникальное свойство производного класса {dom1.AreaPerFloor:F2}");
+            domUpcast.DisplayInfo();// Вызывается переопределенный метод
+            domUpcast.CalculateTax();// Вызывается переопределенный метод
+            // domUpcast.AreaPerFloor - свойство не доступно после Upcasting
+
+
+            if (domUpcast is MultiBuilding)
+            {
+                MultiBuilding domDowncast = dom as MultiBuilding;
+                Console.WriteLine("\nПосле downcasting:");
+                domDowncast.DisplayInfo();
+            }
+
             Console.ReadKey();
         }
     }
@@ -23,7 +33,7 @@ namespace Task10_1
         protected string _address;
         protected double _area;
         protected int _yearBuilt;
-        public double BuildingAge { get; set; }
+        public double BuildingAge { get; }
         //  Конструктор базового класса
         public Building(string ad, double ar, int ye)
         {
@@ -35,25 +45,35 @@ namespace Task10_1
         public virtual void CalculateTax()  // рассчитывает налог (базовая формула: площадь × 1000)
         {
             double n = _area * 1000;
-            Console.WriteLine($"налог: {n}");
+            Console.WriteLine($"Базовый налог: {n:F2}");
+            Console.WriteLine($"-----------------------");
         }
         public virtual void DisplayInfo()  //выводит информацию о здании
         {
-            Console.WriteLine($"адрес здания {_address}, площадь в квадратных метрах {_area} , год постройки {_yearBuilt} ");
+            Console.WriteLine($"-----------------------");
+            Console.WriteLine($"Здание {_yearBuilt} года постройки");
+            Console.WriteLine($"Адрес здания {_address}");
+            Console.WriteLine($"Площадь в квадратных метрах {_area:F2} кв.м.");
+            Console.WriteLine($"Возраст здания {BuildingAge}");
         }
     }
     sealed class MultiBuilding : Building
     {
         int _floors;
         bool _hasElevator;
-        public double AreaPerFloor { get; }
+        public double AreaPerFloor
+        {
+            get
+            {
+                return _area / _floors;
+            }
+        }
         //  Конструктор класса-наследника
         public MultiBuilding(string ad, double ar, int ye, int fl, bool Elevator)
              : base(ad, ar, ye)
         {
             _floors = fl;
             _hasElevator = Elevator;
-            AreaPerFloor = _area / _floors;
         }
         public override void CalculateTax()  // рассчитывает налог (1 + (_floors - 1) * 0.05)
         {
@@ -66,11 +86,15 @@ namespace Task10_1
             {
                 n = _area * 1000 * (1 + (_floors - 1) * 0.05);
             }
-            Console.WriteLine($"налог: {n}");
+            Console.WriteLine($"Повышенный налог: {n:F2}");
+            Console.WriteLine($"-----------------------");
         }
         public override void DisplayInfo()  //выводит информацию о многоэтажном здании
         {
-            Console.WriteLine($"адрес здания : {_address}, площадь в квадратных метрах - {_area} , год постройки - {_yearBuilt}, количество этажей - {_floors}, средняя площадь на этаж - {AreaPerFloor}, наличие лифта - {_hasElevator}");
+            base.DisplayInfo();
+            Console.WriteLine($"Количество этажей - {_floors}");
+            Console.WriteLine($"Средняя площадь на этаж - {AreaPerFloor:F2} кв.м.");
+            Console.WriteLine($"Наличие лифта - {(_hasElevator ? "есть" : "нет")}");
         }
     }
 }
