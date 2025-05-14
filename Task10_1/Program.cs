@@ -17,14 +17,19 @@ namespace Task10_1
             domUpcast.CalculateTax();// Вызывается переопределенный метод
             // domUpcast.AreaPerFloor - свойство не доступно после Upcasting
 
+            //MultiBuilding domDowncast = (MultiBuilding)dom; не допустимое преобразование
 
-            if (domUpcast is MultiBuilding)
+            if (dom1 is MultiBuilding)
             {
                 MultiBuilding domDowncast = dom as MultiBuilding;
-                Console.WriteLine("\nПосле downcasting:");
-                domDowncast.DisplayInfo();
+                if (domDowncast != null)
+                {
+                    Console.WriteLine("\nПосле downcasting:");
+                    domDowncast.DisplayInfo();
+                    domDowncast.CalculateTax();
+                    Console.WriteLine(domDowncast.AreaPerFloor);
+                }
             }
-
             Console.ReadKey();
         }
     }
