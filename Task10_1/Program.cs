@@ -12,12 +12,11 @@ namespace Task10_1
 
             Building domUpcast = dom1;
             Console.WriteLine("\nПосле upcasting:");
-            Console.WriteLine($"уникальное свойство производного класса {dom1.AreaPerFloor:F2}");
+            Console.WriteLine($"уникальное свойство производного класса - средняя площадь на этаж {dom1.AreaPerFloor:F2}");
             domUpcast.DisplayInfo();// Вызывается переопределенный метод
             domUpcast.CalculateTax();// Вызывается переопределенный метод
-            // domUpcast.AreaPerFloor - свойство не доступно после Upcasting
-
-            //MultiBuilding domDowncast = (MultiBuilding)dom; не допустимое преобразование
+               // domUpcast.AreaPerFloor - свойство не доступно после Upcasting
+               //MultiBuilding domDowncast = (MultiBuilding)dom; //-недопустимое преобразование
 
             if (dom1 is MultiBuilding)
             {
@@ -64,8 +63,8 @@ namespace Task10_1
     }
     sealed class MultiBuilding : Building
     {
-        int _floors;
-        bool _hasElevator;
+        int _floors = 0;
+        bool _hasElevator = true;
         public double AreaPerFloor
         {
             get
