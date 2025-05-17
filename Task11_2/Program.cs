@@ -4,31 +4,35 @@
     {
         static void Main(string[] args)
         {
-            static void Main(string[] args)
+            //создание массива, содержащего объекты обоих типов,
+            IFlyable[] pilots = new IFlyable[]
             {
-                //создание массива, содержащего объекты обоих типов,
-                IFlyable[] pilots = new IFlyable[]
-                  {
-                new Bird($"пятнадцать"),
-                new Airplane($"семьсот", 75)
-                 };
-                // Демонстрация полиморфизма
-                foreach (IFlyable pilot in pilots)
-                {
-                    pilot.Fly();
-                }
+                    new Bird($"пятнадцать"),
+                    new Bird($"тридцать пять"),
+                    new Airplane($"семьсот", 75),
+                    new Airplane($"тысяча сто", 219)
+            };
+            // Демонстрация полиморфизма
+            foreach (IFlyable pilot in pilots)
+            {
+                Console.WriteLine(pilot.Fly());
             }
+            Console.ReadKey();
         }
         public interface IFlyable
         {
-            public string Fly();
-            public string MaxAltitude { get; }
+            string Fly();
+            string MaxAltitude { get; }
         }
         public class Bird : IFlyable
         {
             public string MaxAltitude { get; }
-            public string Fly() => $"Лечу на высоте {MaxAltitude} метров";
-            Bird(string мaxAltitude)
+            public string Fly()
+            {
+                return $"Лечу на высоте {MaxAltitude} метров";
+            }
+
+            public Bird(string мaxAltitude)
             {
                 MaxAltitude = мaxAltitude;
             }
@@ -37,12 +41,15 @@
         {
             public string MaxAltitude { get; }
             public int CountPassengers { get; }
-            Airplane(string мaxAltitude, int countPassengers)
+            public Airplane(string мaxAltitude, int countPassengers)
             {
                 CountPassengers = countPassengers;
                 MaxAltitude = мaxAltitude;
             }
-            public string Fly() => $"Лечу на высоте {MaxAltitude} метров. Везу {CountPassengers} пассажиров";
+            public string Fly()
+            {
+                return $"Лечу на высоте {MaxAltitude} метров, везу {CountPassengers} пассажиров";
+            }
         }
     }
 }
