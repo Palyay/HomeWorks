@@ -10,16 +10,18 @@ namespace Task10_1
             Building dom = new Building("Сливовая", 190.15, 1957);
             MultiBuilding dom1 = new MultiBuilding("Каштановая", 2851.52, 2003, 9, true);//Создание объектов обоих типов
 
-            Building domUpcast = dom1;
+            Building domUpcast = dom1; //безопасное преобразование переливаем из маленького стакана в большой
             Console.WriteLine("\nПосле upcasting:");
             Console.WriteLine($"уникальное свойство производного класса - средняя площадь на этаж {dom1.AreaPerFloor:F2}");
             domUpcast.DisplayInfo();// Вызывается переопределенный метод
             domUpcast.CalculateTax();// Вызывается переопределенный метод
-               // domUpcast.AreaPerFloor - свойство не доступно после Upcasting
-               //MultiBuilding domDowncast = (MultiBuilding)dom; //-недопустимое преобразование
-
+                // domUpcast.AreaPerFloor - свойство не доступно после Upcasting
+            //попытаемся из большого стакана перелить в маленький, сделаем явное преобразование
+               //MultiBuilding domDowncast = (MultiBuilding)dom; //Опаснсть! Произойдет недопустимое преобразование
+            //сделаем приведение с проверкой типа
             if (dom1 is MultiBuilding)
             {
+                //выполним приведение с ключевым словом as
                 MultiBuilding domDowncast = dom as MultiBuilding;
                 if (domDowncast != null)
                 {
