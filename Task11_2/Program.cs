@@ -7,35 +7,43 @@
             static void Main(string[] args)
             {
                 //создание массива, содержащего объекты обоих типов,
-                IFlyable[] animals = new IFlyable[]
-                           {
-                new Bird(),
-                new Airplane()
-                           };
+                IFlyable[] pilots = new IFlyable[]
+                  {
+                new Bird($"пятнадцать"),
+                new Airplane($"семьсот", 75)
+                 };
                 // Демонстрация полиморфизма
-                foreach (IFlyable animal in animals)
+                foreach (IFlyable pilot in pilots)
                 {
-                    animal.Fly();
+                    pilot.Fly();
                 }
             }
         }
         public interface IFlyable
         {
-            public abstract string Fly();
+            public string Fly();
             public string MaxAltitude { get; }
         }
         public class Bird : IFlyable
         {
+            public string MaxAltitude { get; }
             public string Fly() => $"Лечу на высоте {MaxAltitude} метров";
-            Bird()
+            Bird(string мaxAltitude)
             {
-                string мaxAltitude = $"пятнадцать";
+                MaxAltitude = мaxAltitude;
             }
         }
         public class Airplane : IFlyable
         {
-            public int CountPassengers();
-            public string Fly() => $"Лечу на высоте {MaxAltitude} метров. Везу {CountPassengers()} пассажиров");
-
+            public string MaxAltitude { get; }
+            public int CountPassengers { get; }
+            Airplane(string мaxAltitude, int countPassengers)
+            {
+                CountPassengers = countPassengers;
+                MaxAltitude = мaxAltitude;
+            }
+            public string Fly() => $"Лечу на высоте {MaxAltitude} метров. Везу {CountPassengers} пассажиров";
         }
     }
+}
+
