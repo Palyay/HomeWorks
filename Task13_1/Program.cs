@@ -7,7 +7,7 @@ namespace Task13_1
     internal class Program
     {
         //  Делегат для преобразования элементов массива
-        public delegate int Transformer(int number);
+        public delegate int Transformer(int number);// работает по типу делегата Func
         // Метод для возвращения преобразованого массива
         public static int[] Transform(int[] numbers, Transformer transformnumbers)
         {
