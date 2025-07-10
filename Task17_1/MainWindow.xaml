@@ -15,8 +15,8 @@
             VerticalContentAlignment="Center"
             Width="60" 
             Height="40"
-            FontSize="24" Margin="0,-50,0,0" />
-               <Button 
+            FontSize="24" Margin="0,-50,0,0"/>
+        <Button 
             Content="Кликни меня!" 
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
@@ -24,6 +24,6 @@
             Width="120" 
             Height="40"
             FontSize="16"
-            Click="Button_Click"/>        
+            Click="Button_Click"/>
     </Grid>
 </Window>
