@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Task17_1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Счетчик кликов" Height="200" Width="350">
     <Grid>
-
+        <TextBox 
+            Name="ResultText"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Width="60" 
+            Height="40"
+            FontSize="24" Margin="0,-50,0,0" />
+               <Button 
+            Content="Кликни меня!" 
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Margin="0,50,0,0"
+            Width="120" 
+            Height="40"
+            FontSize="16"
+            Click="Button_Click"/>        
     </Grid>
 </Window>
