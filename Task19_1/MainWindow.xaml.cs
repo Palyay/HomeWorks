@@ -20,4 +20,33 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
+
+    private void CheckBox_Checked(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void SaveButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (!MailingCheckBox.IsChecked??false)
+        {
+            MessageBox.Show("Оштбка: необходимо согласиться на обработку данных!", "Ошибка",
+                MessageBoxButton.OK, MessageBoxImage.Error);
+            return;
+        }
+
+        var SelectedСourse = СourseListBox.SelectedItems
+            .Cast<ListBoxItem>()
+            .Select(item => item.Content.ToString())
+            .ToList();
+
+        string message = $"Профиль сохранен!\n\n" +
+                        $"Имя: {NameTextBox.Text}\n" +
+                        $"Факультета: {FacultyComboBox.Text}\n" +
+                        $"Форма обучения: {(FormaRadioButton1.IsChecked == true ? "Очная" : "Заочная")}\n" +
+                        $"Выбранный курс: {string.Join(", ", SelectedСourse)}\n" +
+                        $"Количество часов: {TimeSlider.Value}\n" +
+                        $"Согласие на обработку данных: {(MailingCheckBox.IsChecked == true ? "Да" : "Нет")}";
+        MessageBox.Show(message, "Успешно", MessageBoxButton.OK, MessageBoxImage.Information);
+    }
 }
